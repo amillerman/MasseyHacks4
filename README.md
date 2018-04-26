@@ -16,6 +16,12 @@
 - What's next?
   - Quick examples of larger frameworks like angular
 
+  
+Cascading style sheets are largely a way for us to define styles across multiple elements in one definition, but sometimes we may opt to apply specific styles to specific elements. Classes and id's allow you to do just that. 
+
+An ID is something that must be unique to an element on the page. Only one element on a page is allowed to have a specific id. Think of it like your student ID number, it's specific to you, and you alone, in the context of your respective schools. ID's are special attributes of elements on a page because of this uniqueness, and allow for things like forms to use them when they're submitted (more on that later).
+
+A class on the otherhand is something that can be given to multiple items on the same page, and is strictly used for css and js selection purposes. 
 
 References and reading material:
 13 Noteworthy points from google's javascript style guide:
