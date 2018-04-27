@@ -18,7 +18,7 @@
 
 To see that your resources have loaded on your webpage, open the developer tools in your browser (commonly the hotkey in Windows is f12 across most browsers), and click the Network tab.
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/amillerman/MasseyHacks4/blob/master/img/example1.png "Screenshot of the network panel")
 
   
 Cascading style sheets are largely a way for us to define styles across multiple elements in one definition, but sometimes we may opt to apply specific styles to specific elements. Classes and id's allow you to do just that. 
