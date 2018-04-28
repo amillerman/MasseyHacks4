@@ -47,7 +47,25 @@ To see that your resources have loaded on your webpage, open the developer tools
   
 ## Getting started with CSS
 
-Cascading style sheets are largely a way for us to define styles across multiple elements in one definition, but sometimes we may opt to apply specific styles to specific elements. Classes and id's allow you to do just that. 
+Cascading style sheets are largely a way for us to define styles across multiple elements in one definition, but sometimes we may opt to apply specific styles to specific elements. Classes and id's allow you to do just that, but there is also the option of using what are called inline styles. Let's start there, so we can see why developers opt for cascading stylesheets over inline styles.
+
+### Inline styles
+
+An inline style is exactly what it sounds like - a style that is applied directly inline to an element. So if you wanted to make a list of apples, and have the colour of the text correspond to the colour of the apple in the list.
+
+```html
+<ul>
+	<li style="color: #ff0000;">Royal Gala Apples</li>
+	<li style="color: #00ff00;">Mutsu Apples</li>
+	<li style="color: #ff0000;">Red Delicious Apples</li>
+	<li style="color: #ffff00;">Golden Delicious Apples</li>
+	<li style="color: #00ff00;">Granny Smith Apples</li>
+</ul>
+```
+
+This can get a bit tedious, especially when you start wanting to add more styles to each element. Every element takes you more time to alter and get just right since you have to tinker with them one by one. The alternative is to define these styles in a stylesheet and apply them with the use of selectors like classes and id's. Let's get into how those work, and then we can fix our example.
+
+### What is an ID
 
 An ID is something that must be unique to an element on the page. Only one element on a page is allowed to have a specific id. Think of it like your student ID number, it's specific to you, and you alone, in the context of your respective schools. ID's are special attributes of elements on a page because of this uniqueness, and allow for things like forms to use them when they're submitted (more on that later), and you can even link to them on the page! It's worth noting that in the  past, when the web was young, this attribute used to be called name, and you'll still see it as name on some pages. To add an ID to an html element, the code is as follows:
 
@@ -69,9 +87,65 @@ A way to access an element by id in standard javascript is as follows:
 console.log(document.getElementById("first-name"));
 ```
 
-A class on the otherhand is something that can be given to multiple items on the same page, and is strictly used for css and js selection purposes. If you need multiple elements to have the same styles applied to them, it's easiest to give them all the same class bame and then you only need to definte the css once.
+### What is a class
 
-It's important to note that both of these atributes are case insensitive, so camel case isn't a goos option here. Hyphenated words are largely the norm for class names and ID's. 
+A class, on the otherhand, is something that can be given to multiple items on the same page, and is strictly used for css and js selection purposes. If you need multiple elements to have the same styles applied to them, it's easy to give them all the same class name and then you only need to definte the css once. And because elements can have more than 1 class applied to them, you can stack together different styles to have them work together and make your code cleaner overall.
+
+
+```html
+<ul>
+	<li class="padding-10 red">Royal Gala Apples</li>
+	<li class="padding-10 green">Mutsu Apples</li>
+	<li class="padding-10 red">Red Delicious Apples</li>
+	<li class="padding-10 yellow">Golden Delicious Apples</li>
+	<li class="padding-10 green">Granny Smith Apples</li>
+</ul>
+```
+
+```css
+.padding-10{
+	padding: 10px;
+	backbground-color: #999999;
+}
+.red{
+	color: #ff0000;
+}
+.green{
+	color: #00ff00;
+}
+.yellow{
+	color: #ffff00;
+}
+```
+
+We now have added 10 pixels of padding around each list item, to give them some breathing room, a background colour of a light grey (to make that nasty yellow text a bit more legible, and now each list items text colour is defined in one place, so if I don't like that particular green on the list, I can change it once, and it'll change it for all the elements with that class; efficient!
+
+It's important to note that both of these atributes are case insensitive, so camel case isn't a good option here. Hyphenated words are largely the norm for class names and ID's. 
+
+### Very !important
+
+Sometimes you will have elements that have the same style properties applied to them in more than one place. This makes it harder to determine exactly what element will take precedent. There is a "chain of command," so to speak, when it comes to which style will be applied over which, and it has to do with a few factors. Those factors include which style is more specifically selecting the element, the order the styles are defined, whether the style is being applied inline vs in a stylesheet, and if the property is !important or not. Let's look at some examples.
+
+```html
+	<div id="wrapper">
+		<div class="padding-20">
+			Channels
+		</div>
+	</div>
+```
+
+```css
+.padding-20{
+	padding: 20px;
+}
+#wrapper .padding-20{
+	padding: 20px 10px 20px 10px; /* top, right, bottom, left (think clockwise) */
+}
+```
+
+In this example, the second definition will take precedent, because it is not only being defined for the padding-20 class, but it's SPECIFICALLY for padding-20 classes within the wrapper. It's a more specific definition, so its styles will override the normal padding-20 definition.
+
+
 
 References and reading material:
 13 Noteworthy points from google's javascript style guide:
