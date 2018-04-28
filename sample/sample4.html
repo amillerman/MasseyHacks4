@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<style>
+		body{
+			margin: 32px;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		<div class="snippet-demo-container demo-menu demo-menu__top-left">
+            <style>
+			  .demo-menu.demo-menu__top-left .container {
+				position: relative;
+				width: 200px;
+			  }
+			  .demo-menu.demo-menu__top-left .background {
+				background: white;
+				height: 148px;
+				width: 100%;
+			  }
+			  .demo-menu.demo-menu__top-left .bar {
+				box-sizing: border-box;
+				background: #3F51B5;
+				color: white;
+				width: 100%;
+				padding: 16px;
+			  }
+			</style>
+
+			<div class="container mdl-shadow--2dp">
+			  <div class="background"></div>
+			  <div class="bar">
+				<!-- Left aligned menu on top of button  -->
+				<button id="demo-menu-top-left"
+						class="mdl-button mdl-js-button mdl-button--icon">
+				  <i class="material-icons">more_vert</i>
+				</button>
+
+				<ul class="mdl-menu mdl-menu--top-left mdl-js-menu mdl-js-ripple-effect"
+					data-mdl-for="demo-menu-top-left">
+				  <li class="mdl-menu__item">Some Action</li>
+				  <li class="mdl-menu__item">Another Action</li>
+				  <li disabled class="mdl-menu__item">Disabled Action</li>
+				  <li class="mdl-menu__item">Yet Another Action</li>
+				</ul>
+
+			  </div>
+			</div>
+
+		  </div>
+	</p>
+		<!-- Accent-colored raised button with ripple -->
+	<p>
+		<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+			Button
+		</button>
+	</p>
+	<!-- Colored FAB button -->
+	<p>
+		<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+		  <i class="material-icons">add</i>
+		</button>
+	</p>
+</body>
+</html>

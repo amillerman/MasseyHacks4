@@ -190,7 +190,7 @@ CSS may seem simple on the surface, but it's got a lot more to it than meets the
 
 Standard javascript syntax is a lot like most languages, where you have if statements, loops, etc, but it also comes with ways to try to interact with the DOM and bind things to elements on the page. The problem is the way it interacts with the DOM, which tends to be cumbersome unfortunately, and lots of libraries have been written to make it easier to interact with the DOM. Some of the popular ones among them are jQuery and AngularJS. 
 
-AngularJS is a very advanced library that builds on javascript to change the way we interact with the DOM entirely. Instead of manipulating it directly, we do so using controllers, directives, factories, and other systems that angular has defined. It greatly expands what you can do with front end development, but it requires a great deal of time to grasp decently, and lots of experience and patience to use well. It's beyond the scope of this workshop, but I highly recommend looking into it in your spare time, because it's becoming a mainstream way of developing on the web. You can find out how to get started with it [here](https://docs.angularjs.org/misc/started).
+AngularJS is a very advanced library that builds on javascript to change the way we interact with the DOM entirely. Instead of manipulating it directly, we do so using controllers, directives, factories, and other systems that angular has defined to do the heavy lifting, while not manipulating the dom directly after it's been rendered. It greatly expands what you can do with front end development, but it requires a great deal of time to grasp decently, and lots of experience and patience to use well. It's beyond the scope of this workshop, but I highly recommend looking into it in your spare time, because it's becoming a mainstream way of developing on the web. You can find out how to get started with it [here](https://docs.angularjs.org/misc/started).
 
 jQuery on the other hand is much easier to pick up and get started using right away. It very directly interacts with the DOM and manipulates elements directly through the code. Let's look at another sample page to see how we can get started using it.
 
@@ -203,6 +203,18 @@ First off, we can bind actions to events. An event can be anything from a key pr
 - We selected every button by using $("button")
 - We assigned those buttons a click event by applying .on("click", _function that defines the action we take_)
 - When this event is triggered, it will find every p tag, and toggle it, using $("p").toggle();
+
+We can use jQuery to do all kinds of DOM manipulations, from assigning styles to an element, to changing its classes, to iterating through JSON data and drawing new elements onto the page. You can do requests to the server to retrieve new information, to make your webpage more interactive, and remove the need to constantly be loading a new page every time you need to retrieve new information. 
+
+But a library like jQuery comes at a cost, and it comes down to direct DOM manipulation being a fickle thing. Any changes you may make to the structure of your site will cause a lot of changes needed to your jQuery. Manipulating the DOM directly also leads to a lot of possible flow and logic errors as your site grows, and a lot of the time jQuery code tends to not be reusable, so you're writing things from the ground up over and over again. It's still a bit clunky, and in a world where web browsing is primarily done from the phone now, efficiency in speed and space are getting to be more and more important. It's still got its uses, but it's slowly falling out of being the goto for developers.
+
+## Frameworks and why we use them
+
+As I said before, CSS can be a nightmare to write a lot of the time, especially when you're worried about cross device compatability. With that in mind, developers have started to use standardized libraries that can be used right out of the box to make your web pages pretty with the use of just a few classes. Let's look at an example using [Material Design](https://getmdl.io/started/index.html).
+
+[Sample 4](https://github.com/amillerman/MasseyHacks4/blob/master/sample/sample4.html)
+
+This is where we really see classes shine, in frameworks like these. Mdl is a framework developed by google (recognise that + button from somewhere? Like gmail?) that is based on their entire [Material design ruleset](https://material.io/guidelines/material-design/introduction.html). It's meant to try to help users create interfaces that work on all devices, and take all types of users into account, making sure that buttons and other tappable items are large enough to be useful without being overly large to take away from the site or applications aesthetic. This design ruleset supersedes web development; it's used in a lot of native android applications as well, and makes its way into normal desktop applications as well. I'm a big fan of what Google does, and Material Design is the direction we've been moving for a while now where I work. It paves the way for more intuitive web design and adds an aesthetic that works very well. There are many small plugins you can find for it, to add addtional functionality to it, and it [integrates](https://material.angular.io/) with larger systems like AngularJS in a very nice way.
 
 
 References and reading material:

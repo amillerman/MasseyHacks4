@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("button").on("click", function(){
-        $("p").toggle(); //because p is a general selector, this will trigger the toggle function on all results that are applicable
-    });
-});
-</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$("button").on("click", function(){
+			$("p").toggle(); //because p is a general selector, this will trigger the toggle function on all results that are applicable
+		});
+	});
+	</script>
 </head>
 <body>
 
-<h2>This is a heading</h2>
+	<h2>This is a heading</h2>
 
-<p>This is a paragraph.</p>
-<p>This is another paragraph.</p>
+	<p>This is a paragraph.</p>
+	<p>This is another paragraph.</p>
 
-<button>Click me to hide paragraphs</button>
+	<button>Click me to hide paragraphs</button>
 
 </body>
 </html>
