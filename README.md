@@ -63,7 +63,7 @@ An inline style is exactly what it sounds like - a style that is applied directl
 </ul>
 ```
 
-This can get a bit tedious, especially when you start wanting to add more styles to each element. Every element takes you more time to alter and get just right since you have to tinker with them one by one. The alternative is to define these styles in a stylesheet and apply them with the use of selectors like classes and id's. Let's get into how those work, and then we can fix our example.
+This can get a bit tedious, especially when you start wanting to add more styles to each element. Every element takes you more time to alter and get just right since you have to tinker with them one by one. The alternative is to define these styles in a stylesheet and apply them with the use of selectors, like classes and id's. *Note* that tag names are also valid selectors, so you may apply styles to tags themselves too. Let's get into how those work, and then we can fix our example.
 
 ### What is an ID
 
@@ -175,7 +175,7 @@ Last but certainly not least are media queries. These are a nifty way to help yo
 
 The much cleaner solution is to use medi queries in your css definitions, and cleaning up some of the html to enable it ready for use on any sized device. A media query goes around a block of css and defines what range of screen width it'll be applied for. It sounds a bit odd, so let's jump into an example.
 
-[Sample 2]
+[Sample 2](https://github.com/amillerman/MasseyHacks4/blob/master/sample/sample2.html)
 
 So in that example, we have some css classes width property being overwritten when the max width of the browser is less than 768 pixels. This works for a couple reasons: 
 
@@ -194,7 +194,16 @@ AngularJS is a very advanced library that builds on javascript to change the way
 
 jQuery on the other hand is much easier to pick up and get started using right away. It very directly interacts with the DOM and manipulates elements directly through the code. Let's look at another sample page to see how we can get started using it.
 
-[Sample 3]()
+[Sample 3](https://github.com/amillerman/MasseyHacks4/blob/master/sample/sample3.html)
+
+So remember when we talked about selectors in CSS? Well this is where that knowledge comes in handy again. Those selectors are the same when we're using jQuery, so in this example, we can see we have applied a click event handler to all "button" tags, and we are toggling (either showing or hiding, depending on the current state of the element) all paragraph tags on the page when a button is clicked. This is a very simplistic example of what you can do with jQuery, but it does show off several aspects.
+
+First off, we can bind actions to events. An event can be anything from a key press, to you scrolling the page, to clicking an element. You can even define custom events, to control the flow more accurately. So in this example, we are binding an action (defined in the function) to the click event on every button on the page. 
+
+- We selected every button by using $("button")
+- We assigned those buttons a click event by applying .on("click", _function that defines the action we take_)
+- When this event is triggered, it will find every p tag, and toggle it, using $("p").toggle();
+
 
 References and reading material:
 13 Noteworthy points from google's javascript style guide:
