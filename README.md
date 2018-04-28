@@ -167,7 +167,34 @@ Now let's do an example with a use of !important:
 }
 ```
 
-If !important is inserted after the property value, but before the semicolon, it will 
+If !important is inserted after the property value, but before the semicolon, it will take precedent over anything and everything (except a more specifically defined version of the style also using !important). This means that the property could be defined first on the css sheet and no non-!important property would overwrite it defined later in the sheet, nor if it's more strictly defined using classes and id's, and !important even trumps inline styles! It's very powerful, with great power comes great responsibility, and a phrase we use at work all the time when this property gets thrown around more than it should be is: If everything is !important, nothing is. !important is very powerful and should not be relied on for regular use. It's meant to be a trump card to be used sparingly. It's also worth noting that you can use it in your inline styles too.
+
+### Media Queries
+
+Last but certainly not least are media queries. These are a nifty way to help you define styles for your page when it's on certain sizes of devices. Ever notice how a website looks different on your phone than on a desktop? In the past, we used to accomplish this by building two versions of the website, and then serving up the desired version based on browser detection, device detection, etc. This was super cumbersome, very time consuming from a development standpoint, and it wasn't very reliable since new devices and technology is constantly coming out, while websites remain without being updated.
+
+The much cleaner solution is to use medi queries in your css definitions, and cleaning up some of the html to enable it ready for use on any sized device. A media query goes around a block of css and defines what range of screen width it'll be applied for. It sounds a bit odd, so let's jump into an example.
+
+[Sample 2]
+
+So in that example, we have some css classes width property being overwritten when the max width of the browser is less than 768 pixels. This works for a couple reasons: 
+
+- That viewport meta data helps make sure that the page's width is based on the actual devices browser width, along with also stopping users from zooming on the page and creating horrible horizontal scrollbar problems. This way, on a smaller phones browser screen, the window will actually be a reasonable size and we can plan to display the content correctly on those smaller screens. 
+- Since our media queries actual css isn't any more specific than the normal css (we're assinging the width to .col-3 and .col-6, but we were already doing that before too), it's important that the media query is defined AFTER the initial css. This way, since it's CASCADING stylesheets, the second definition is the one that's used.
+
+Media queries are very important in modern web development, and help enable us to do lots of clean page organization, without having to rely on clunky javascript checking for page widths or browser compatability (though that last part is definitely still a thing in CSS!).
+
+CSS may seem simple on the surface, but it's got a lot more to it than meets the eye. It can also be increadibly frustrating, especially when you start to use libraries to help make the visual designing of websites easier (mdi, bootstrap, etc). With enough patience, you can make more happen with CSS than most will believe (it's even got decent animations now!).
+
+## Getting started with Javascript
+
+Standard javascript syntax is a lot like most languages, where you have if statements, loops, etc, but it also comes with ways to try to interact with the DOM and bind things to elements on the page. The problem is the way it interacts with the DOM, which tends to be cumbersome unfortunately, and lots of libraries have been written to make it easier to interact with the DOM. Some of the popular ones among them are jQuery and AngularJS. 
+
+AngularJS is a very advanced library that builds on javascript to change the way we interact with the DOM entirely. Instead of manipulating it directly, we do so using controllers, directives, factories, and other systems that angular has defined. It greatly expands what you can do with front end development, but it requires a great deal of time to grasp decently, and lots of experience and patience to use well. It's beyond the scope of this workshop, but I highly recommend looking into it in your spare time, because it's becoming a mainstream way of developing on the web. You can find out how to get started with it [here](https://docs.angularjs.org/misc/started).
+
+jQuery on the other hand is much easier to pick up and get started using right away. It very directly interacts with the DOM and manipulates elements directly through the code. Let's look at another sample page to see how we can get started using it.
+
+[Sample 3]()
 
 References and reading material:
 13 Noteworthy points from google's javascript style guide:
