@@ -27,7 +27,7 @@ So to get started, there are some standard html tags that start off a webpage we
 Note the two external files we're including in our page, namely the stylesheet and the script:
 
 ```html
-        <link rel="stylesheet" href="css/styles.css?v=1.0">
+	<link rel="stylesheet" href="css/styles.css?v=1.0">
 ```
 
 The style tag needs to be included in the head of the document. You can include many stylesheets (this is part of how you use libraries like bootstrap, angular and material for example) if you need to, but for stylesheets you control, adding this query at the end of the stylesheet link can help you a lot down the line. One of the problems while developing for the web is that you visit the same page over and over again. This leads to issues where you don't see code updating when you refresh the page, but it's due to the browser trying to be smart and help the average user by not downloading files it already thinks it has (like your stylesheet) when it doesn't think anything has changed in that file. By adding and changing the version number in the stylesheet include, you can make sure the browser updates your css code when you refresh the page without having to do something like clear your browsers cache or hard refresh (harder to do on something like a phone).
@@ -35,7 +35,7 @@ The style tag needs to be included in the head of the document. You can include 
 Now for including the javascript:
 
 ```javascript
-        <script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 ```
 
 Much like the stylesheet, it's good to get a version number on your javascript too to save you from caching confusion. Notice, though, that we're adding the javascript file at the bottom of the body tag. We do this for speed; the content on the page loads sequentially, and javascript files can be the larger files, along with introduce all kinds of changes to the DOM once they are loaded, which takes time for the browser to interpret and put into effect. This is particularly troublesome when you would like your page to load things like images first, to better the user experience. By adding these includes to the very end of the body, they'll be prioritized lower and load later, making the page seem to load faster to the user. This is kind of an older practice, and it does depend on the situation you're in, but it's still good to do generally. There's also the concept of loading a script async or deferring it (see a good description of the differences [here](http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)).
@@ -127,11 +127,11 @@ It's important to note that both of these atributes are case insensitive, so cam
 Sometimes you will have elements that have the same style properties applied to them in more than one place. This makes it harder to determine exactly what element will take precedent. There is a "chain of command," so to speak, when it comes to which style will be applied over which, and it has to do with a few factors. Those factors include which style is more specifically selecting the element, the order the styles are defined, whether the style is being applied inline vs in a stylesheet, and if the property is !important or not. Let's look at some examples.
 
 ```html
-	<div id="wrapper">
-		<div class="padding-20">
-			Channels
-		</div>
+<div id="wrapper">
+	<div class="padding-20">
+		Channels
 	</div>
+</div>
 ```
 
 ```css
@@ -145,7 +145,29 @@ Sometimes you will have elements that have the same style properties applied to 
 
 In this example, the second definition will take precedent, because it is not only being defined for the padding-20 class, but it's SPECIFICALLY for padding-20 classes within the wrapper. It's a more specific definition, so its styles will override the normal padding-20 definition.
 
+Now let's do an example with a use of !important:
 
+
+
+```html
+<div id="wrapper">
+	<div class="margin-10">
+		Authors
+	</div>
+</div>
+```
+
+```css
+.margin-10{
+	margin: 10px !important; 
+}
+
+.margin-10{
+	margin: 12px;
+}
+```
+
+If !important is inserted after the property value, but before the semicolon, it will 
 
 References and reading material:
 13 Noteworthy points from google's javascript style guide:
